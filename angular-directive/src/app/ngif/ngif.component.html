@@ -1,0 +1,15 @@
+<h2>NgIf Example</h2>
+<h3>Student Mark List</h3>
+<table>
+  <thead >    
+    <th>Student Name</th>
+    <th>Score</th>
+    <th>Result</th>
+  </thead>
+  <tr *ngFor="let student of studentList" >      
+    <td>{{student.name}}</td> 
+    <td>{{student.score}}</td>
+    <td *ngIf="student.status; else failStyle" [ngStyle]="passStyles">{{student.result}}</td>
+    <ng-template #failStyle><td [ngStyle]="failStyles">{{student.result}}</td></ng-template>  
+  </tr>
+</table>

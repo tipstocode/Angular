@@ -1,0 +1,25 @@
+<h2>NgModel Examples</h2>
+<div>
+    <label>HTML Div</label>
+    {{name}}
+</div>
+<div>
+  <label>Without NgModel</label>
+  <input [value]="name" (input)="name" id="without-ngModel">
+</div>
+<div>
+  <label>With NgModel one way binding</label>
+  <input [ngModel]="name" id="with-ngModel">
+</div>
+<div>
+    <label>With NgModel two way binding</label>
+    <input [(ngModel)]="name" id="with-ngModel">
+  </div>
+<div>
+  <label>Bindon NgModel</label>
+  <input bindon-ngModel="name" id="bindon-ngModel">
+</div>
+<div>
+  <label>NgModel with NgModelChange</label>
+  <input [ngModel]="name" (ngModelChange)="name = $event.toUpperCase()" id="ngModel-with-ngModelChange">
+</div>

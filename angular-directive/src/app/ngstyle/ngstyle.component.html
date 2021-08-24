@@ -1,0 +1,18 @@
+<h2>NgStyle Example</h2>
+<h3>Student Mark List</h3>
+<table >
+  <thead >
+    <th>Student Name</th>
+    <th>Score</th>
+    <th>Result</th>
+  </thead>
+  <tr *ngFor="let student of studentList">  
+    <td [ngStyle]="{'color':'blue', 'font-weight':'bolder'}">{{student.name}}</td> 
+    <td [ngStyle]="{'font-size.em':1.5}" [style.color]="'green'">{{student.score}}</td>
+    <!-- <td  [ngStyle]="{'color': student.score>=35 ? 'green' : 'red'}">{{student.result}}</td> -->
+    <!-- <td  [ngStyle]="{'color': student.score>=35 ? 'green' : 'red','font-weight': student.score>=35 ? 'bolder' : 'bold'}">{{student.result}}</td> -->
+    <td  [ngStyle]="{'color': student.score>=35 ? passStyle : failStyle}">{{student.result}}</td>
+    <!-- <td [ngStyle]="passStyles">{{student.result}}</td> -->
+    <!--<td *ngIf="!student.status" [ngStyle]="failStyles">{{student.result}}</td> -->
+  </tr>
+</table>

@@ -1,0 +1,15 @@
+<h2>NgClass Example</h2>
+<h3 >Student Mark List</h3>
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Score</th>
+    <th>Result</th>
+  </thead>
+  <tr *ngFor="let student of studentList">  
+    <td [ngClass]="'name font-bold'">{{student.name}}</td> 
+    <td [ngClass]="['score', 'font-bold']">{{student.score}}</td>    
+    <!-- <td [ngClass]="{'pass': student.score>=35,'fail': student.score<35}">{{student.result}}</td> -->
+    <td [ngClass]="student.score>=35 ? 'pass font-bold' : 'fail'">{{student.result}}</td>
+  </tr>
+</table>

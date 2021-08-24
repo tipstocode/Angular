@@ -1,0 +1,68 @@
+<h2>NgFor Example </h2>
+<table>
+  <thead >
+    <th>Student ID</th>
+    <th>Student Name</th>
+    <th>Score</th>
+    <th>Result</th>
+  </thead>
+  <tr *ngFor="let student of studentList" >  
+    <td>{{student.id}}</td> 
+    <td>{{student.name}}</td> 
+    <td>{{student.score}}</td>
+    <td >{{student.result}}</td>
+  </tr>  
+</table>
+<h2>NgFor Example with index </h2>
+<table>
+  <thead >
+    <th>Index Value</th>
+    <th>Student ID</th>
+    <th>Student Name</th>
+    <th>Score</th>
+    <th>Result</th>
+  </thead>
+  <tr *ngFor="let student of studentList; let i=index" >  
+    <td>{{i+1}}</td> 
+    <td>{{student.id}}</td> 
+    <td>{{student.name}}</td> 
+    <td>{{student.score}}</td>
+    <td >{{student.result}}</td>
+  </tr>  
+</table>
+
+<h3>NgFor without TrackBy </h3>
+<table>
+  <thead >
+    <th>Student ID</th>
+    <th>Student Name</th>
+    <th>Score</th>
+    <th>Result</th>
+  </thead>
+  <tr *ngFor="let student of studentList" >  
+    <td>{{student.id}}</td> 
+    <td>{{student.name}}</td> 
+    <td>{{student.score}}</td>
+    <td >{{student.result}}</td>   
+  </tr>
+  <button (click)="resetStudents()">Add Students</button>
+ 
+</table>
+
+<h3>NgFor with TrackBy </h3>
+<table>
+  <thead >
+    <th>Student ID</th>
+    <th>Student Name</th>
+    <th>Score</th>
+    <th>Result</th>
+  </thead>
+  <tr *ngFor="let student of studentList; trackBy: trackByStudents" >  
+    <td>{{student.id}}</td> 
+    <td>{{student.name}}</td> 
+    <td>{{student.score}}</td>
+    <td >{{student.result}}</td>    
+  </tr>
+  <button (click)="resetStudents()">Add Students</button>
+ 
+</table>

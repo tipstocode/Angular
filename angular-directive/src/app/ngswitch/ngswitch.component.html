@@ -1,0 +1,19 @@
+<h2>NgSwitch Example</h2>
+<p>NgSwith with Compoment elements</p>
+<div [ngSwitch]="directiveChoice">
+    <app-ngclass *ngSwitchCase="'ngclass'"></app-ngclass> 
+    <app-ngstyle *ngSwitchCase="'ngstyle'"></app-ngstyle>
+    <app-ngmodel *ngSwitchCase="'ngmodel'"></app-ngmodel>
+    <app-ngif *ngSwitchCase="'ngif'"></app-ngif>
+    <app-ngfor *ngSwitchCaseDefault></app-ngfor>   
+</div>
+
+<p>NgSwith with native HTML elements</p>
+<div [ngSwitch]="gadgetChoice">
+    <div *ngSwitchCase=1>Personal Computer</div>
+    <div *ngSwitchCase=2>Laptop</div>
+    <div *ngSwitchCase=3>Palmtop</div>
+    <div *ngSwitchCase=4>Tablet</div>
+    <div *ngSwitchCase=5>Mobile Phone</div>
+    <div *ngSwitchCaseDefault>Gadget</div>
+</div>

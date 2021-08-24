@@ -1,0 +1,18 @@
+.font-bold{
+    font-weight: bolder;
+}
+.name{
+    color:blue;
+}
+.score{
+    color:purple;
+}
+.pass{
+    color:green;
+   
+}
+.fail{
+    color:red;
+    font-weight: bolder;
+}
+
