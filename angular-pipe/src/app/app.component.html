@@ -1,0 +1,60 @@
+<h1>Angular Built-in Pipes</h1>
+<h3>Date Pipe Examples</h3>
+<div>{{ datestring | date }}</div>
+<div>{{ currentDate | date:"MM/dd/yy" }} </div>
+<div>{{currenttime | date:"fullTime"}}</div>
+
+<h3>Uppercase Pipe Examples</h3>
+<div>{{website | uppercase}}</div>
+
+<h3>Lowercase Pipe Examples</h3>
+<div>{{website | lowercase}}</div>
+
+<h3>Currency Pipe Examples</h3>
+<div>{{amount | currency}}</div>
+<div>{{amount | currency:'CAD'}}</div>
+<div>{{amount | currency:'INR'}}</div>
+
+<h3>Decimal Pipe Examples</h3>
+<!--   Input:5.5625 =>  Output:5.563   -->
+<div>{{amount | number}}</div>
+
+<!--   Input:5.5625 =>  Output:6   -->
+<div>{{amount | number : '0.0-0'}} (or) {{amount | number : '1.0-0'}}</div>
+
+<div>{{amount | number : '3.0-0'}}</div>
+
+<!--   Input:5.5625 =>  Output:5.6   -->
+<div>{{amount | number : '1.1-1'}}</div>
+
+<!--   Input:5.5625 =>  Output:5.56   -->
+<div>{{amount | number : '1.1-2'}}</div>
+
+<h3>Percent Pipe Examples</h3>
+<div>{{amount | percent}}</div>
+<div>{{amount | percent : '1.1-2'}}</div>
+
+<h3>Currency Pipe Examples</h3>
+<div>{{amount | currency}} (Use default Symbol $)</div>
+<div>Canadian Dollor: {{amount | currency : 'CAD'}}</div>
+<div>Euro: {{amount | currency : 'EUR'}}</div>
+<div>Indian Rupee: {{amount | currency : 'INR'}}</div>
+<div>US Dollar: {{amount | currency : 'USD': 'symbol':'4.2-2'}}</div>
+
+<h3>Custom Pipe Examples</h3>
+<table border="1">
+    <thead>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Score</th>
+      <th>Grade</th>
+    </thead>
+    <tr *ngFor="let student of students">
+      <td>{{ student.id }}</td>
+      <td>{{ student.name | honorificPipe:student.gender}}</td>
+      <td>{{ student.gender}}</td>
+      <td>{{ student.score}}</td>
+      <td>{{ student.score | gradepipe}}</td>
+    </tr>
+  </table>
