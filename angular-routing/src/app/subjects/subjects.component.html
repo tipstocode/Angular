@@ -1,0 +1,14 @@
+<div>
+    <table border="1">
+      <thead>
+        <th>Id</th>
+        <th>Subject Name</th>          
+      </thead>
+      <tr *ngFor="let subject of subjectList">
+        <td>{{subject.id}}</td>
+        <td>{{subject.name}}</td>        
+      </tr>
+    </table>
+  </div>
+<div>Relative Route Example</div>
+<button (click)="goToStudentList()">Go to Students List Page</button>

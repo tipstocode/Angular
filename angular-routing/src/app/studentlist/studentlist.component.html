@@ -1,0 +1,20 @@
+<div>
+  <table border="1">
+    <thead>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Pass Params</th>      
+    </thead>
+    <tr *ngFor="let student of studentList">
+      <td>{{student.id}}</td>
+      <td>{{student.name}}</td>
+      <td>{{student.age}}</td>
+      <td>{{student.gender}}</td>     
+      <!-- <td><span><a routerLink="/studentlist/editstudent/{{student.id}}">Edit</a></span></td> -->
+      <td><span><a [routerLink]="['/studentlist/editstudent',student.id]">Edit</a></span></td>     
+    </tr>
+  </table>
+</div>
+<div><router-outlet></router-outlet></div>
