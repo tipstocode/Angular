@@ -1,0 +1,32 @@
+<h2>Template-Driven Form (ngModel declared with two way data-binding syntax [( )])</h2>
+<form #tdFrom1="ngForm" (ngSubmit)="tdFormSubmit()">
+    <label>First Name</label>
+    <input type="text" [(ngModel)]="user.firstName" name="first"  >
+    <label>Last Name</label>
+    <input type="text" [(ngModel)]="user.lastName" name="last" >
+    <label>Gender</label>
+    <input type="text" [(ngModel)]="user.gender" name="gender" >
+    <button type="submit" >Submit</button>
+</form>
+
+<h2>Template-Driven Form (ngModel declared with one way data-binding syntax)</h2>
+<form #tdFrom2="ngForm" (ngSubmit)="tdFormSubmit1(tdFrom1.value)">
+    <label>First Name</label>
+    <input type="text" [ngModel]="user1.firstName" name="firstName" >
+    <label>Last Name</label>
+    <input type="text" [ngModel]="user1.lastName" name="last-name" >
+    <label>Gender</label>
+    <input type="text" [ngModel]="user1.gender" name="gender-type" >
+    <button type="submit" >Submit</button>
+</form>
+
+<h2>Template-Driven Form (No data-binding and no inialize form values)</h2>
+<form #tdFrom3="ngForm" (ngSubmit)="tdFormSubmit2(tdFrom3.value)">
+    <label>First Name</label>
+    <input type="text" ngModel name="firstName" >
+    <label>Last Name</label>
+    <input type="text" ngModel name="lastName" >
+    <label>Gender</label>
+    <input type="text" ngModel name="gender" >
+    <button type="submit" [disabled]="!tdFrom3.valid">Submit</button>
+</form>

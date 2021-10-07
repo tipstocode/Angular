@@ -1,0 +1,22 @@
+<h2>Reactice Form Using FormGroup</h2>
+<form [formGroup]="reactiveFrom" (ngSubmit)="reactiveFormSubmit()">
+    <label>First Name</label>
+    <input type="text" formControlName="firstName" name="first"  >
+    <label>Last Name</label>
+    <input type="text" formControlName="lastName" name="last" >
+    <label>Gender</label>
+    <input type="text" formControlName="gender" name="gender" >
+    <button type="submit" [disabled]="!reactiveFrom.valid">Submit</button>
+</form>
+
+<h2>Reactice Form using FormBuilder </h2> 
+<form [formGroup]="reactiveFrom1" (ngSubmit)="reactiveFormSubmit1()">
+    <label>First Name</label>
+    <input type="text" formControlName="firstName" name="first">
+    <label>Last Name</label>
+    <input type="text" formControlName="lastName" name="last" >
+    <label>Gender</label>
+    <input type="text" formControlName="gender" name="gender" >
+    <button type="submit" [disabled]="!reactiveFrom1.valid">Submit</button>
+</form>
+
