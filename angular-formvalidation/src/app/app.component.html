@@ -1,0 +1,199 @@
+<h2>Template-Driven Signup Form with validations</h2>
+<form #tdSignupForm="ngForm" (ngSubmit)="tdSignupFormSubmit()" novalidate>
+    <div class="signup-form">
+    <div class="signup-form-controls">
+        <label>First Name</label>
+        <input type="text" [(ngModel)]="user.firstName" name="firstName"  #firstName="ngModel" minlength="4" required>
+        <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert">
+            <div *ngIf="firstName.errors?.required">
+                First Name is required.
+            </div>   
+            <div *ngIf="firstName.errors?.minlength">
+                First Name should be atleast 4 characters
+            </div>   
+        </div>        
+    </div>
+   
+    <div class="signup-form-controls">
+        <label>Last Name</label>
+        <input type="text" [(ngModel)]="user.lastName" name="lastName" #lastName="ngModel" maxlength="4" required>
+        <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert">
+            <div *ngIf="lastName.errors?.required">
+                Last Name is required.
+            </div> 
+            <div *ngIf="lastName.errors?.maxlength">
+                Last Name should be maximum 4 characters
+            </div>      
+        </div>  
+    </div>
+    <div class="signup-form-controls">   
+        <label>Gender</label>
+        <select [(ngModel)]="user.gender" name="gender" #gender="ngModel" required>
+            <option value="">--Select--</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Transgender">Transgender</option>
+       </select>        
+        <div *ngIf="gender.invalid && (gender.dirty || gender.touched)" class="alert">
+            <div *ngIf="gender.errors?.required">
+                Gender is required.
+            </div>       
+        </div> 
+    </div>
+    <div class="signup-form-controls">   
+        <label>Email</label>
+        <input type="text" [(ngModel)]="user.email" name="email" #email="ngModel" required email>
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
+            <div *ngIf="email.errors?.required">
+                Email is required.
+            </div>
+            <div *ngIf="email.errors?.email">
+                Invalid Email Id
+            </div>       
+        </div> 
+    </div>
+    <div class="signup-form-controls">   
+        <label>Age</label>
+        <input type="number" [(ngModel)]="user.age" name="age" #age="ngModel" required min=18 max=35>
+        <div *ngIf="age.invalid && (age.dirty || age.touched)" class="alert">
+            <div *ngIf="age.errors?.required">
+                Age is required (Allowed only Numbers).
+            </div>
+            <div *ngIf="age.errors?.min">
+                Age should 18 to 35
+            </div> 
+            <div *ngIf="age.errors?.max">
+                Age should 18 to 35
+            </div>       
+        </div> 
+    </div>
+    <div class="signup-form-controls">   
+        <label>Mobile Number</label>
+        <input type="text" [(ngModel)]="user.mobile" name="mobile" #mobile="ngModel" required pattern="^[0-9]*$" minlength="10" maxlength="10">
+        <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)" class="alert">
+            <div *ngIf="mobile.errors?.required">
+                10 digit Mobile Number is required.
+            </div>
+            <div *ngIf="mobile.errors?.pattern">
+                Invalid Mobile Number
+            </div>                   
+        </div> 
+    </div>
+    <div class="signup-form-controls">   
+        <label>Terms and Conditions</label>
+        <input type="checkbox" [(ngModel)]="user.tc" name="tc" #tc="ngModel"  required>
+        <div *ngIf="tc.invalid && (tc.dirty || tc.touched)" class="alert">
+            <div *ngIf="tc.errors?.required">
+                Tick this box
+            </div>                   
+        </div> 
+    </div>
+    <div class="signup-form-controls">
+        <button type="submit" [disabled]="!tdSignupForm.valid">Submit</button>
+    </div>
+    </div>
+</form>
+
+
+
+<h2>Reactice Signup Form with validations </h2> 
+<form [formGroup]="signupForm" (ngSubmit)="ReSignupFormSubmit()" novalidate>
+    <div class="signup-form">
+        <div class="signup-form-controls">
+            <label>First Name</label>
+            <input type="text" formControlName="firstName" name="firstname">
+            <div *ngIf="signupForm.controls.firstName.invalid && 
+                (signupForm.controls.firstName.dirty || signupForm.controls.firstName.touched)" class="alert">
+                <div *ngIf="signupForm.controls.firstName.errors?.required">
+                    First Name is required.
+                </div>   
+                <div *ngIf="signupForm.controls.firstName.errors?.minlength">
+                    First Name should be atleast 4 characters
+                </div>   
+            </div> 
+        </div>
+        <div class="signup-form-controls">
+            <label>Last Name</label>
+            <input type="text" formControlName="lastName" name="lastname" >
+            <div *ngIf="signupForm.controls.lastName.invalid && 
+                (signupForm.controls.lastName.dirty || signupForm.controls.lastName.touched)" class="alert">
+                <div *ngIf="signupForm.controls.lastName.errors?.required">
+                    Last Name is required.
+                </div>   
+                <div *ngIf="signupForm.controls.lastName.errors?.maxlength">
+                    Last Name should be maximum 4 characters
+                </div>   
+            </div> 
+        </div>
+        <div class="signup-form-controls">
+            <label>Gender</label>
+            <select formControlName="gender" name="gender">
+                    <option value="">--Select--</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Transgender">Transgender</option>
+            </select>           
+            <div *ngIf="signupForm.controls.gender.invalid && 
+                (signupForm.controls.gender.dirty || signupForm.controls.gender.touched)" class="alert">
+                <div *ngIf="signupForm.controls.gender.errors?.required">
+                    Gender is required.
+                </div>             
+            </div> 
+        </div>
+        <div class="signup-form-controls">   
+            <label>Email</label>
+                <input type="text" formControlName="email" name="email" >
+                <div *ngIf="signupForm.controls.email.invalid && 
+                    (signupForm.controls.email.dirty || signupForm.controls.email.touched)" class="alert">
+                    <div *ngIf="signupForm.controls.email.errors?.required">
+                        Email is required.
+                    </div>
+                    <div *ngIf="signupForm.controls.email.errors?.email">
+                        Invalid Email Id
+                    </div>       
+                </div> 
+        </div>
+            <div class="signup-form-controls">   
+                <label>Age</label>
+                <input type="number" formControlName="age" name="age" >
+                <div *ngIf="signupForm.controls.age.invalid && 
+                (signupForm.controls.age.dirty || signupForm.controls.age.touched)" class="alert">
+                    <div *ngIf="signupForm.controls.age.errors?.required">
+                        Age is required (Allowed only Numbers).
+                    </div>
+                    <div *ngIf="signupForm.controls.age.errors?.min">
+                        Age should 18 to 35
+                    </div> 
+                    <div *ngIf="signupForm.controls.age.errors?.max">
+                        Age should 18 to 35
+                    </div>       
+                </div> 
+            </div>
+            <div class="signup-form-controls">   
+                <label>Mobile Number</label>
+                <input type="text" formControlName="mobile" name="mobile" >
+                <div *ngIf="signupForm.controls.mobile.invalid && 
+                    (signupForm.controls.mobile.dirty || signupForm.controls.mobile.touched)" class="alert">
+                    <div *ngIf="signupForm.controls.mobile.errors?.required">
+                        10 digit Mobile Number is required.
+                    </div>
+                    <div *ngIf="signupForm.controls.mobile.errors?.pattern">
+                        Invalid Mobile Number
+                    </div>                       
+                </div> 
+            </div>
+            <div class="signup-form-controls">   
+                <label>Terms and Conditions</label>
+                <input type="checkbox" formControlName="tc" name="tc">
+                <div *ngIf="signupForm.controls.tc.invalid && 
+                    (signupForm.controls.tc.dirty || signupForm.controls.tc.touched)" class="alert">
+                    <div *ngIf="signupForm.controls.tc.errors?.required">
+                        Tick this box
+                    </div>                   
+                </div> 
+            </div>
+        <div class="signup-form-controls">
+            <button type="submit" [disabled]="!signupForm.valid">Submit</button>
+        </div>
+    </div>
+  </form>
